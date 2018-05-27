@@ -21,12 +21,10 @@ spring:
     properties:
       dialect: org.hibernate.dialect.MySQLDialect
       show-sql: true
-      #hbm2ddl.auto: update
       current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
     packages_to_scan: com.ybej.orders.entity
   session:
     store-type: redis
-
 
 druid:
   url: jdbc:mysql://10.0.2.189:4006/ybejiatest?useUnicode=true&amp;characterEncoding=utf-8;autoReconnect=true
@@ -81,14 +79,14 @@ enableSwagger: true
 
 #shiro-cas
 casServerUrlPrefix: https://logintest.ybejia.com
-shiroServerUrlPrefix: http://localhost:8083
+shiroServerUrlPrefix: https://ordertest.ybejia.com
 casLoginUrl: ${casServerUrlPrefix}/login
 casPattern: /api/index/single
 loginUrl: ${casLoginUrl}?service=${shiroServerUrlPrefix}${casPattern}
 casLogoutUrl: ${casServerUrlPrefix}/logout?service=${shiroServerUrlPrefix}${casPattern}
 
 imageBase: https://imagetest.ybejia.com
-htmlIndex: http://localhost:8083/index.html
+htmlIndex: https://ordertest.ybejia.com
 
 # yjf config (Test)
 plat:
@@ -116,7 +114,6 @@ email:
   service:
     url: http://msg.ybejia.com/api/v1/email
 
-#这里和caServer过期策略保持一致
 redis:
   session:
     expire: 7200
