@@ -6,7 +6,7 @@ spring:
     password: dev123
     virtual-host: dev
   redis:
-    host: 127.0.0.1
+    host: 10.0.2.186
     password:
     port: 6379
     database: 11
