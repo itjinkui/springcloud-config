@@ -27,7 +27,7 @@ spring:
     store-type: redis
 
 druid:
-  url: jdbc:mysql://l27.0.0.1:3306/springcloud?useUnicode=true&amp;characterEncoding=utf-8;autoReconnect=true
+  url: jdbc:mysql://l27.0.0.1:3306/ybejiatest?useUnicode=true&amp;characterEncoding=utf-8;autoReconnect=true
   username: root
   password: root
   driver-class-name: com.mysql.jdbc.Driver
