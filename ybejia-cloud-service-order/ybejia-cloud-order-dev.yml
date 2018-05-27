@@ -1,0 +1,125 @@
+spring:
+  rabbitmq:
+    host: 10.0.2.189
+    port: 5672
+    username: dev
+    password: dev123
+    virtual-host: dev
+  redis:
+    host: 127.0.0.1
+    password:
+    port: 6379
+    database: 11
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+  aop:
+    proxy-target-class: true
+  hibernate:
+    properties:
+      dialect: org.hibernate.dialect.MySQLDialect
+      show-sql: true
+      #hbm2ddl.auto: update
+      current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+    packages_to_scan: com.ybej.orders.entity
+  session:
+    store-type: redis
+
+
+druid:
+  url: jdbc:mysql://10.0.2.189:4006/ybejiatest?useUnicode=true&amp;characterEncoding=utf-8;autoReconnect=true
+  username: ybejiatest
+  password: ceshi1@YBEJIA
+  driver-class-name: com.mysql.jdbc.Driver
+  initial-size: 20
+  max-active: 1000
+  min-idle: 20
+  max-wait: 60000
+  timeBetweenEvictionRunsMillis: 40000
+  minEvictableIdleTimeMillis: 30000
+  pool-prepared-statements: false
+  max-pool-prepared-statement-per-connection-size: 200
+  max-open-prepared-statements: 20
+  validation-query: SELECT 1 FROM DUAL
+  validation-query-timeout: 60
+  test-on-borrow: false
+  test-on-return: false
+  test-while-idle: true
+  filters: stat,wall,log4j,config
+  removeAbandoned: true
+  removeAbandonedTimeout: 1200
+  web-stat-filter:
+    enabled: true
+    url-pattern: /*
+    exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*,/swagger*,/api-docs'
+    session-stat-enable: true
+    profile-enable: true
+  stat-view-servlet:
+    enabled: true
+    url-pattern: /druid/*
+    reset-enable: false
+    login-username: admin
+    login-password: 123456
+    allow: 127.0.0.1,222.249.179.29,36.110.38.183,10.8.0.58
+    deny: 192.168.1.73
+  aop-patterns: com.ybej.orders.service.*
+
+# 启用shutdown
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+  restart:
+    enabled: true
+
+# swagger2
+#swagger2.package: com.ybejia.contract.controller
+#swagger enable
+enableSwagger: true
+
+#shiro-cas
+casServerUrlPrefix: https://logintest.ybejia.com
+shiroServerUrlPrefix: http://localhost:8083
+casLoginUrl: ${casServerUrlPrefix}/login
+casPattern: /api/index/single
+loginUrl: ${casLoginUrl}?service=${shiroServerUrlPrefix}${casPattern}
+casLogoutUrl: ${casServerUrlPrefix}/logout?service=${shiroServerUrlPrefix}${casPattern}
+
+imageBase: https://imagetest.ybejia.com
+htmlIndex: http://localhost:8083/index.html
+
+# yjf config (Test)
+plat:
+  yjf:
+    partnerId: 20160831020000752645
+    url: http://merchantapi.yijifu.net/gateway.html
+    console: http://merchant.yijifu.net/login.html
+    key: 4d9a3ff0e9d2cb09fdcec860d3120961
+    name: autoinstallment@yiji.com
+    password: 111111
+    entrustedLoanAgreementNo: WDZD0001
+
+#contract config
+contract:
+  service:
+    url: https://contractstest.ybejia.com/
+
+contractsRootUrl: https://test.ybejia.com/contracts/
+#contract filepath
+generate:
+  pdf:
+    filePath: /var/ybejiaweb/contracts
+#email config(Test)
+email:
+  service:
+    url: http://msg.ybejia.com/api/v1/email
+
+#这里和caServer过期策略保持一致
+redis:
+  session:
+    expire: 7200
+
+logging:
+  path: ybejia-cloud-order-log
