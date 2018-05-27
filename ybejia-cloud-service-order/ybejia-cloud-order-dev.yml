@@ -79,7 +79,7 @@ enableSwagger: true
 
 #shiro-cas
 casServerUrlPrefix: https://logintest.ybejia.com
-shiroServerUrlPrefix: https://ordertest.ybejia.com
+shiroServerUrlPrefix: http://localhost
 casLoginUrl: ${casServerUrlPrefix}/login
 casPattern: /api/index/single
 loginUrl: ${casLoginUrl}?service=${shiroServerUrlPrefix}${casPattern}
