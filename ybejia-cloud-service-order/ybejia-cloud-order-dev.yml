@@ -87,16 +87,7 @@ casLogoutUrl: ${casServerUrlPrefix}/logout?service=${shiroServerUrlPrefix}${casP
 imageBase: https://imagetest.ybejia.com
 htmlIndex: https://ordertest.ybejia.com
 
-# yjf config (Test)
-plat:
-  yjf:
-    partnerId: 20160831020000752645
-    url: http://merchantapi.yijifu.net/gateway.html
-    console: http://merchant.yijifu.net/login.html
-    key: 4d9a3ff0e9d2cb09fdcec860d3120961
-    name: autoinstallment@yiji.com
-    password: 111111
-    entrustedLoanAgreementNo: WDZD0001
+
 
 #contract config
 contract:
